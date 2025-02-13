@@ -1,0 +1,344 @@
+#timeline {
+  margin-top: 40px;
+  display: grid;
+  gap: 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.memory {
+  padding: 20px;
+  background-color: #ffe4e1;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.memory h2 {
+  font-size: 2rem;
+  color: #e91e63;
+}
+
+.memory p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.memory img {
+  max-width: 100%;
+  height: auto;
+  width: 300px;
+  border-radius: 10px;
+  margin-top: 10px;
+  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* this for the fading animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.memory {
+  opacity: 0;
+  transform: translateY(20px); /* gonna start slightly below */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.memory.visible {
+  opacity: 1;
+  transform: translateY(0); /* push back to OG position */
+}
+
+#particle-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;  /* Ensure it stays behind other content */
+  background-color: #fdf3f3;
+}
+
+.valentine-buttons {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.valentine-buttons button {
+  background-color: #e91e63;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.valentine-buttons button:hover {
+  transform: scale(1.1);
+}
+
+/* Wave Container */
+.wave-container {
+  position: relative;
+  height: 150px;
+  width: 100%;
+  overflow: hidden;
+  background-color: #ffe4e1;
+  z-index: 1;
+}
+
+.wave {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  background: rgba(233, 30, 99, 0.5);
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: wave-animation 6s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+}
+
+.wave1 {
+  top: 0;
+  animation-delay: 0s;
+  background: rgba(233, 30, 99, 0.2);
+}
+
+.wave2 {
+  top: 30px;
+  animation-delay: 2s;
+  background: rgba(233, 30, 99, 0.3);
+}
+
+.wave3 {
+  top: 60px;
+  animation-delay: 4s;
+  background: rgba(233, 30, 99, 0.4);
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: translateX(0) translateY(10px) scaleY(1);
+  }
+  50% {
+    transform: translateX(-25%) translateY(-10px) scaleY(0.8);
+  }
+  100% {
+    transform: translateX(0) translateY(10px) scaleY(1);
+  }
+}
+
+
+.header-container {
+  position: relative;
+  text-align: center;
+  padding: 40px 0;
+}
+
+header h1 {
+  position: relative;
+  z-index: 2; /* Ensures it stays above the waves */
+  font-size: 2.5rem;
+  color: #e91e63; /* Same pinkish color */
+  margin-bottom: -30px; /* Moves it closer to the waves */
+}
+
+.wave-container {
+  position: relative;
+  height: 100px;
+  width: 100%;
+  overflow: hidden;
+  background-color: #ffe4e1;
+  z-index: 1;
+}
+
+#floating-hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* So it doesn't interfere with clicking */
+  z-index: -1;
+}
+
+.heart {
+  position: absolute;
+  color: red;
+  font-size: 20px;
+  opacity: 0.7;
+  animation: floatHearts 5s linear infinite;
+}
+
+@keyframes floatHearts {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+#floating-hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Prevents it from interfering with clicks */
+  z-index: 10; /* Keep hearts above other content */
+}
+
+.heart {
+  position: absolute;
+  bottom: -10px; /* Start slightly below screen */
+  color: red;
+  font-size: 20px;
+  animation: floatUp 5s linear infinite;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-120vh); /* Move hearts far up */
+    opacity: 0;
+  }
+}
+
+
+/* General Style */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0e4e4;
+  color: #333;
+  overflow: hidden;
+}
+
+/* Particle background */
+#particle-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: #f0e4e4;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 50px;
+}
+
+.thank-you-text {
+  font-size: 3rem;
+  color: #e91e63;
+  animation: fadeIn 2s ease-in-out;
+  letter-spacing: 2px;
+}
+
+/* Fancy Paragraph */
+.thank-you-section {
+  margin: 40px auto;
+  padding: 20px;
+  max-width: 800px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.message {
+  font-size: 1.5rem;
+  margin: 20px 0;
+  line-height: 1.6;
+  color: #555;
+  animation: slideIn 2s ease-out;
+}
+
+.signature {
+  font-size: 2rem;
+  color: #e91e63;
+  font-weight: bold;
+  margin-top: 40px;
+  animation: fadeIn 3s ease-in-out;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  color: #e91e63;
+  font-size: 1.2rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
